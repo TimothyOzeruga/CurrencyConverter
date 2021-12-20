@@ -8,7 +8,7 @@ const routes = [
     component: Converter
   },
   {
-    path: '/about',
+    path: '/currencies',
     name: 'Currencies',
     component: function () {
       return import('../views/Currencies.vue')

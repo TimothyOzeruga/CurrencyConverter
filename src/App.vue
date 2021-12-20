@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link to="/">Converter</router-link>
-    <router-link to="/about">All Currencies</router-link>
+    <router-link to="/currencies">All Currencies</router-link>
   </div>
   <router-view/>
 </template>
