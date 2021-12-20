@@ -1,30 +1,63 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Converter</router-link>
+    <router-link to="/about">All Currencies</router-link>
   </div>
   <router-view/>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 #nav {
-  padding: 30px;
+  padding: 2rem;
+  background: rgb(53, 100, 189);
+  display: flex;
+  justify-content: center;
 
   a {
+    padding: .5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #181f27;
+    font-size: 20px;
+    margin-right: 10px;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #42b956;
     }
+    &:hover{
+      color: rgb(220, 150, 20);
+    }
+    
   }
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.container{
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+a,
+button {
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .2s ease;
 }
 </style>
