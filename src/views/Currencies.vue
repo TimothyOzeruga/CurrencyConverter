@@ -12,7 +12,10 @@
           class="currencies__wrap"
           v-if="isSelectVisible"
         >
-          <h4 class="currencies__wrap_title">Favorite Currencies:</h4>
+          <div class="w">
+            <h4 class="currencies__wrap_title">Favorite Currencies:</h4>
+            <button type="button" class="item__btn btn_remove" @click="clearFav">Clear FavList</button>
+          </div>
           <div class="currencies__list fav_list">
             <div class="currencies__item item" 
               v-for="(value, ind) in fav_list" 
@@ -89,7 +92,15 @@ export default {
           let favItem = result.find((el)=> el[0] === val);
           this.fav_list.push(favItem);
       }
-      // localStorage.setItem('fav_cur', JSON.stringify(this.fav_list));
+      localStorage.setItem('fav_cur', JSON.stringify(this.fav_list));
+    },
+    clearFav(){
+      if(this.fav_list.length > 0){
+        this.fav_list = [];
+        localStorage.setItem('fav_cur', JSON.stringify(this.fav_list));
+      }else{
+        return
+      }
     },
     changeBaseCurrency(val){
       this.baseCurrency = val
@@ -137,7 +148,7 @@ export default {
   box-shadow: 0px -33px 32px 15px rgba(25, 50, 69, 0.33) inset;
   max-height: 400px;
   overflow-y: auto;
-   padding: 1rem .5rem;
+   padding: 1rem .8rem;
 }
 .currencies__wrap_title{
   font-size: 26px;
@@ -154,11 +165,12 @@ export default {
 .fav_list{
   margin-bottom: 1rem;
 }
-.emp{
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%);
+.w{
+  display: flex;
+  justify-content: space-between;
+}
+.btn_remove{
+  background-color: rgb(226, 50, 59) !important;
 }
 .currencies__item {
   position: relative;
