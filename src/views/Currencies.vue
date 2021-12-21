@@ -76,17 +76,17 @@ export default {
     }
   },
   methods: {
-    favorite(val){
+     favorite(val){
       if(this.fav_list.length!=0){
-        this.fav_list.forEach((el, ind) => {
-          if(el[0] === val){
-              this.fav_list.splice(ind,1)
-          }else{
+        let ind = this.fav_list.findIndex((el)=> el[0] === val);
+        console.log(ind);
+        if(ind!=-1){
+              this.fav_list.splice(ind, 1);
+        }else{
             let result = Object.keys(this.currencies).map((key) => [(key), this.currencies[key]]);
             let favItem = result.find((el)=> el[0] === val);
             this.fav_list.push(favItem);
-          }
-        })
+        }
       }else{
           let result = Object.keys(this.currencies).map((key) => [(key), this.currencies[key]]);
           let favItem = result.find((el)=> el[0] === val);
